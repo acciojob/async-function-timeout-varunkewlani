@@ -1,26 +1,25 @@
-//your JS code here. If required.
-let text=document.getElementByID("text").value;
-let delay=document.getElementByID("delay").value;
-let btn=document.getElementByID("btn");
-let output=document.getElementByID("output");
+
+let btn=document.getElementById("btn");
+let output=document.getElementById("output");
 
 const promise=()=>
 	{
+		let text=document.getElementById("text").value; 
+		let delay=document.getElementById("delay").value;
 		return new Promise((resolve,reject)=>
 			{
 				setTimeout(()=>
 				{
 					resolve(text);
-				},delay)
+				},delay);
 			})
 	}
-}
-btn.addEventListener("click",async function 
+
+btn.addEventListener("click", async function() 
 {
 	try 
 	{
-		let result = await delayText(text, delay);
-        output.innerHTML = result;	
+        output.innerHTML = await promise();	
 	} 
 	catch (error) 
 	{
